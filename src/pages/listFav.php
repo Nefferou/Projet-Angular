@@ -15,7 +15,7 @@
                 <div class="item"><h1>Un titre</h1></div>
             </div>
             <div class="controller">
-                <button class="btn allBtn">Tous les restaurants</button>
+                <a href="./listRestau.php"><button class="btn allBtn">Tous les restaurants</button></a>
                 <button class="btn favBtn">Mes favoris</button>
             </div>
         </div>

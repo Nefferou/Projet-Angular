@@ -15,7 +15,7 @@
                 <h2 class="noMarg">Connectez-vous pour continuer</h2>
                 <input type="email" placeholder="e-mail">
                 <input type="password" placeholder="Mot de passe">
-                <input id="SubmitBtn" type="submit" name="submit" value="Connection" method="POST" class="btn logBtn">
+                <a href="./pages/listRestau.php"><input id="SubmitBtn" type="submit" name="submit" value="Connection" method="POST" class="btn logBtn"></a>
             </form>
         </div>
     </body>
