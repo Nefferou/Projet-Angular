@@ -13,6 +13,9 @@
         <div id="LogScreen">
             <form id="LogForm"class="controller">
                 <h2 class="noMarg">Connectez-vous pour continuer</h2>
+                <?php
+                    exec("./back/connexionbdd.php");
+                ?>
                 <input type="email" placeholder="e-mail">
                 <input type="password" placeholder="Mot de passe">
                 <a href="./pages/listRestau.php"><input id="SubmitBtn" type="submit" name="submit" value="Connection" method="POST" class="btn logBtn"></a>
