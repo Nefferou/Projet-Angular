@@ -1,7 +1,7 @@
 <?php
             require_once '../back/connexionbdd.php';
             
-            $collection = $client->selectCollection('GroupeB', 'user');
+            $collection = $client->selectCollection('GroupeB', 'users');
             $user = $collection->findOne([
                 'name'=>$_GET['name'],
                 'password'=>$_GET['password']
