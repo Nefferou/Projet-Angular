@@ -22,7 +22,7 @@
             <?php
             require_once '../back/connexionbdd.php';
             
-            $restaurant = $client->selectCollection('ynov', 'restaurants');
+            $restaurant = $client->selectCollection('GroupeB', 'restaurants');
 
             // on récupère tous les types de cuisine différents
             $cuisine = $restaurant->distinct('cuisine');
