@@ -1,27 +1,21 @@
-<!---
-<mat-card class="card">
-  <mat-card-header class="title">
-    <mat-card-title>{{myPokemon.name}}</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image src={{myPokemon.image}} alt={{myPokemon.name}}>
-  <mat-card-content>
+<div class="card">
+  <header class="title">
+    <title>{{pokemon.name}}</title>
+  </header>
+  <img src={{pokemon.image}} alt={{pokemon.name}}>
+  <content>
     <div class="stats">
-      <p>HP : {{myPokemon.stats["HP"]}}</p>
-      <p>A : {{myPokemon.stats["Att"]}}</p>
-      <p>D : {{myPokemon.stats["Def"]}}</p>
+      <p>HP : {{pokemon.stats.HP}}</p>
+      <p>A : {{pokemon.stats.attack}}</p>
+      <p>D : {{pokemon.stats.defense}}</p>
     </div>
     <div class="stats">
-      <p>AS : {{myPokemon.stats["AttSpe"]}}</p>
-      <p>DS : {{myPokemon.stats["DefSpe"]}}</p>
-      <p>V : {{myPokemon.stats["Vit"]}}</p>
+      <p>AS : {{pokemon.stats.special_attack}}</p>
+      <p>DS : {{pokemon.stats.special_defense}}</p>
+      <p>V : {{pokemon.stats.speed}}</p>
     </div>
-  </mat-card-content>
+  </content>
   <div class="types">
-    <img src={{myPokemon.types.first}} alt={{myPokemon.name}}>
-    <img *ngIf="myPokemon.types.second != null" src={{myPokemon.types.second}} alt={{myPokemon.name}}>
+    <img *ngFor="let types of pokemon.apiTypes" src={{types.image}} alt={{types.name}}>
   </div>
-</mat-card>
---->
-<div>
-  <div>{{myPokemon}}</div>
 </div>

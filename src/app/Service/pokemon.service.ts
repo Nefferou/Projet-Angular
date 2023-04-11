@@ -7,7 +7,7 @@ import { Pokemon } from '../Models/pokemon.model';
   providedIn: 'root'
 })
 export class PokemonService {
-  private baseUrl = 'https://pokebuildapi.fr/api/v1/pokemon';
+  private baseUrl = 'https://pokebuildapi.fr/api/v1/pokemon/limit/20';
 
   constructor(private http: HttpClient) {}
 

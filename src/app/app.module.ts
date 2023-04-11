@@ -22,6 +22,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SortByNamePipe,
     PokemonCardComponent,
     SearchPokemonPipe,
+    PokemonGridComponent,
   ],
   imports: [
     BrowserModule,

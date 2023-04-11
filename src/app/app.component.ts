@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from './Service/pokemon-service.service';
+import { PokemonService } from './Service/pokemon.service';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +12,6 @@ export class AppComponent {
   title: String = '';
 
   constructor(private pokemons: PokemonService) { }
-
-  ngOnInit() {
-
-  }
-
-  // changeOrder() {
-  //   if(this.order == 'desc'){
-  //     this.order = 'asc';
-  //   }
-  //   else {
-  //     this.order = 'desc';
-  //   }
-  //   console.log(this.order);
-  // }
 
   changeOrder(e: any) {
     if (e.target.value === 'dateAsc') {

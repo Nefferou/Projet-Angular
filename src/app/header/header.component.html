@@ -1,13 +1,11 @@
-<mat-toolbar id="header">
+<div id="header">
     <span>My App</span>
-    <mat-form-field class="example-form-field">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="value" type="text" (change)="onSearch($event)">
-        <button matSuffix mat-icon-button aria-label="Clear" (click)="suppSearch()" (click)="value=''" >
-            <mat-icon>close</mat-icon>
+    <form class="example-form-field">
+        <label>Search</label>
+        <input [(ngModel)]="value" type="text" (change)="onSearch($event)">
+        <button aria-label="Clear" (click)="suppSearch()" (click)="value=''" >
         </button>
-    </mat-form-field>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
+    </form>
+    <button  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     </button>
-</mat-toolbar>
+</div>

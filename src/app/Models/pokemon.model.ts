@@ -4,20 +4,31 @@ export class Pokemon {
         public name: string,
         public image: string,
         public sprite: string,
-        public stats: { 
+        public stats: {
             HP: number,
-            Att: number,
-            Def: number,
-            AttSpe: number,
-            DefSpe: number,
-            Vit: number,
+            attack: number,
+            defense: number,
+            special_attack: number,
+            special_defense: number,
+            speed: number,
         },
-        public types: {
-            first: string,
-            second?: string,
+        public apiTypes: [{
+            image: string,
+            name: string,
         },
+        {
+          image?: string,
+          name?: string,
+      }
+    ],
         public likes:number,
         public price?: number,
         public isLikes?:boolean,
         public fav?: boolean) {}
+
+
+        public getApiTypes(){
+          return this.apiTypes;
+        }
+
 }
