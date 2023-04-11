@@ -19,6 +19,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortByNamePipe } from './sort-by-name.pipe';
@@ -44,7 +46,8 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
   ],
   providers: [{
     provide: LOCALE_ID,

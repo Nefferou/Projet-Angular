@@ -6,16 +6,16 @@ import { Pokemon } from '../pokemon-card/pokemon-card.model';
 })
 export class PokemonService {
   pokemons: Pokemon[] = [
-    new Pokemon(1, "Bulbizarre", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png", {"HP": 45,
+    new Pokemon(1, "Bulbizarre", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", {"HP": 45,
     "Att": 49,
     "Def": 49,
     "AttSpe": 65,
     "DefSpe": 65,
-    "Vit": 45}, {"first" : "Poison", "second" : "Plante"}, 0),
+    "Vit": 45}, {"first" : "https://static.wikia.nocookie.net/pokemongo/images/0/05/Poison.png", "second" : "https://static.wikia.nocookie.net/pokemongo/images/c/c5/Grass.png"}, 0),
   ];
 
   getAllProducts() {
-    return this.pokemons;
+    //Pour Hugo
   }
 
   getOne() {
