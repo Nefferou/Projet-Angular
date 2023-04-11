@@ -2,7 +2,8 @@ export class Pokemon {
     constructor(
         public id: number,
         public name: string,
-        public imageURL: string,
+        public image: string,
+        public sprite: string,
         public stats: { 
             HP: number,
             Att: number,
