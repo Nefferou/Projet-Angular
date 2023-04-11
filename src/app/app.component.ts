@@ -17,16 +17,29 @@ export class AppComponent {
 
   ngOnInit() {
     this.search = '';
-    this.title = 'MyFirstAngularApp';
+    this.title = 'PokemonShop';
     this.product = this.productsService.products;
   }
 
-  changeOrder() {
-    if(this.order == 'desc'){
-      this.order = 'asc';
-    }
-    else {
-      this.order = 'desc';
+  // changeOrder() {
+  //   if(this.order == 'desc'){
+  //     this.order = 'asc';
+  //   }
+  //   else {
+  //     this.order = 'desc';
+  //   }
+  //   console.log(this.order);
+  // }
+
+  changeOrder(e: any) {
+    if (e.target.value === 'dateAsc') {
+      this.order = 'dateAsc';
+    } else if (e.target.value === 'dateDesc') {
+      this.order = 'dateDesc';
+    } else if (e.target.value === 'nameAsc') {
+      this.order = 'nameAsc';
+    } else if (e.target.value === 'nameDesc') {
+      this.order = 'nameDesc';
     }
     console.log(this.order);
   }

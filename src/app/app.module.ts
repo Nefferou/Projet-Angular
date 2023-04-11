@@ -21,6 +21,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SortByNamePipe } from './sort-by-name.pipe';
+import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SortByDatePipe,
     SearchProductPipe,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SortByNamePipe,
+    PokemonCardComponent
   ],
   imports: [
     BrowserModule,
