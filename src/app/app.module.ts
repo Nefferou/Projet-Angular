@@ -7,18 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ProductCardComponent } from './product-card/product-card.component';
-import { SortByDatePipe } from './sort-by-date.pipe';
+import { SortByNamePipe } from './sort-by-name.pipe';
+import { SearchPokemonPipe } from './search-pokemon.pipe';
 
 import { FormsModule } from '@angular/forms';
-import { SearchProductPipe } from './search-product.pipe';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortByNamePipe } from './sort-by-name.pipe';
@@ -28,13 +29,11 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductCardComponent,
-    SortByDatePipe,
-    SearchProductPipe,
     HeaderComponent,
     FooterComponent,
     SortByNamePipe,
-    PokemonCardComponent
+    PokemonCardComponent,
+    SearchPokemonPipe,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     HttpClientModule,
     MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
   ],
   providers: [{
     provide: LOCALE_ID,

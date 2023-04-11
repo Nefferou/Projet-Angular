@@ -1,20 +1,20 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Product } from './product-card/product-card.model';
+import { Pokemon } from './pokemon-card/pokemon-card.model';
 
 @Pipe({
   name: 'sortByName'
 })
 export class SortByNamePipe implements PipeTransform {
 
-  transform(products: Product[], order: String): Product[] {
+  transform(products: Pokemon[], order: String): Pokemon[] {
     if (!products || products.length === 0) {
       return [];
     }
 
     // On trie les produits par ordre alphabétique selon leur titre
     return products.sort((a, b) => {
-      let titleA = a.title.toLowerCase();
-      let titleB = b.title.toLowerCase();
+      let titleA = a.name.toLowerCase();
+      let titleB = b.name.toLowerCase();
 
       let i = 0;
       while (titleA.charAt(i) === titleB.charAt(i) && i < titleA.length && i < titleB.length) {
