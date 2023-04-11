@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './product-card/product-card.model';
-import { ProductsService } from './Service/products-service.service';
+import { PokemonService } from './Service/pokemon-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +7,14 @@ import { ProductsService } from './Service/products-service.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  product!: Product[]
   search: String = '';
   order: String = '';
   title: String = '';
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private pokemons: PokemonService) { }
 
   ngOnInit() {
-    this.search = '';
-    this.title = 'PokemonShop';
-    this.product = this.productsService.products;
+
   }
 
   // changeOrder() {
