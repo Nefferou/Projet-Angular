@@ -23,6 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortByNamePipe } from './sort-by-name.pipe';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule,
     MatCheckboxModule
   ],
   providers: [{

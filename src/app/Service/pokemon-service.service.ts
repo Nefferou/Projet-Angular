@@ -1,26 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from '../pokemon-card/pokemon-card.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Pokemon } from '../Models/pokemon.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
-  pokemons: Pokemon[] = [
-    new Pokemon(1, "Bulbizarre", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png", {"HP": 45,
-    "Att": 49,
-    "Def": 49,
-    "AttSpe": 65,
-    "DefSpe": 65,
-    "Vit": 45}, {"first" : "Poison", "second" : "Plante"}, 0),
-  ];
+  private baseUrl = 'https://pokebuildapi.fr/api/v1/pokemon';
+  private pokemons = this.getAllPokemon();
 
-  getAllProducts() {
-    return this.pokemons;
+  constructor(private http: HttpClient) {}
+
+  getAllPokemon(): Pokemon[] {
+    let tab = Array();
+    this.http.get<Pokemon[]>(this.baseUrl).forEach((ps : Pokemon =>{
+      tab.push(ps);
+    })
+    );
+    return tab;
   }
 
-  getOne() {
-    return this.pokemons[0];
+  getPokemonById(id: number): Observable<Pokemon> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Pokemon>(url);
   }
+
+  searchPokemon(query: string): Observable<Pokemon[]> {
+    const url = `${this.baseUrl}/search?q=${query}`;
+    return this.http.get<Pokemon[]>(url);
+  }
+
 
   onAddLike(pokemon: Pokemon): void {
     if(pokemon.isLikes){
