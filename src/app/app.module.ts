@@ -22,9 +22,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SortByNamePipe } from './sort-by-name.pipe';
-import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +42,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    MatCheckboxModule
     MatCheckboxModule,
     MatCardModule
   ],

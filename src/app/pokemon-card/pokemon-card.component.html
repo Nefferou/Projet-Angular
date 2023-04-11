@@ -1,22 +1,27 @@
+<!---
 <mat-card class="card">
-    <mat-card-header class="title">
-      <mat-card-title>{{myPokemon.name}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src={{myPokemon.image}} alt={{myPokemon.name}}>
-    <mat-card-content>
-        <div class="stats">
-            <p>HP : {{myPokemon.stats["HP"]}}</p>
-            <p>A : {{myPokemon.stats["Att"]}}</p>
-            <p>D : {{myPokemon.stats["Def"]}}</p>
-        </div>
-        <div class="stats">
-            <p>AS : {{myPokemon.stats["AttSpe"]}}</p>
-            <p>DS : {{myPokemon.stats["DefSpe"]}}</p>
-            <p>V : {{myPokemon.stats["Vit"]}}</p>
-        </div>
-    </mat-card-content>
-    <div class="types">
-        <img src={{myPokemon.types.first}} alt={{myPokemon.name}}>
-        <img *ngIf="myPokemon.types.second != null" src={{myPokemon.types.second}} alt={{myPokemon.name}}>
+  <mat-card-header class="title">
+    <mat-card-title>{{myPokemon.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src={{myPokemon.image}} alt={{myPokemon.name}}>
+  <mat-card-content>
+    <div class="stats">
+      <p>HP : {{myPokemon.stats["HP"]}}</p>
+      <p>A : {{myPokemon.stats["Att"]}}</p>
+      <p>D : {{myPokemon.stats["Def"]}}</p>
     </div>
-  </mat-card>
+    <div class="stats">
+      <p>AS : {{myPokemon.stats["AttSpe"]}}</p>
+      <p>DS : {{myPokemon.stats["DefSpe"]}}</p>
+      <p>V : {{myPokemon.stats["Vit"]}}</p>
+    </div>
+  </mat-card-content>
+  <div class="types">
+    <img src={{myPokemon.types.first}} alt={{myPokemon.name}}>
+    <img *ngIf="myPokemon.types.second != null" src={{myPokemon.types.second}} alt={{myPokemon.name}}>
+  </div>
+</mat-card>
+--->
+<div>
+  <div>{{myPokemon}}</div>
+</div>

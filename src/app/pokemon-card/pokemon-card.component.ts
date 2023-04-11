@@ -17,6 +17,13 @@ export class PokemonCardComponent implements OnInit{
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-      this.pokemonService.getAllPokemon().subscribe((ps: Pokemon[]) => this.myPokemon = ps[0] );
-  }
+      console.log(this.pokemonService.getAllPokemon());
+      this.pokemonService.getAllPokemon().subscribe(
+        (data: Pokemon[]) => {
+          this.myPokemon = data[0];
+          console.log(this.myPokemon);
+        }
+      );
+
+    }
 }
