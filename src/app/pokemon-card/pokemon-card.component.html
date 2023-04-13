@@ -5,17 +5,31 @@
   <img src={{pokemon.image}} alt={{pokemon.name}}>
   <content>
     <div class="stats">
-      <p>HP : {{pokemon.stats.HP}}</p>
-      <p>A : {{pokemon.stats.attack}}</p>
-      <p>D : {{pokemon.stats.defense}}</p>
+      <p class="HP">HP : {{pokemon.stats.HP}}</p>
+      <p class="Att">Att : {{pokemon.stats.attack}}</p>
+      <p class="Def">Def : {{pokemon.stats.defense}}</p>
     </div>
     <div class="stats">
-      <p>AS : {{pokemon.stats.special_attack}}</p>
-      <p>DS : {{pokemon.stats.special_defense}}</p>
-      <p>V : {{pokemon.stats.speed}}</p>
+      <p class="AtS">AtS : {{pokemon.stats.special_attack}}</p>
+      <p class="DfS">DfS : {{pokemon.stats.special_defense}}</p>
+      <p class="Vit">Vit : {{pokemon.stats.speed}}</p>
     </div>
   </content>
   <div class="types">
     <img *ngFor="let types of pokemon.apiTypes" src={{types.image}} alt={{types.name}}>
   </div>
+  <span class="ajouts">
+    <div class="cart">
+      <button class="add" (click)="addPokemon(pokemon)">+</button>
+      <button class="remove" (click)="removePokemon(pokemon)">-</button>
+    </div>
+    <div class="favorites">
+      <button class="favorite" (click)="Favorite(pokemon)">
+        <img *ngIf="pokemon.isLikes" src="https://img.icons8.com/ios/50/000000/like.png" alt="favorite">
+        <img *ngIf="!pokemon.isLikes" src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="favorite">
+      </button>
+    </div>
+  </span>
+
 </div>
+

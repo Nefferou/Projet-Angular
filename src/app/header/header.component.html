@@ -2,7 +2,7 @@
     <span>My App</span>
     <form class="example-form-field">
         <label>Search</label>
-        <input [(ngModel)]="value" type="text" (change)="onSearch($event)">
+        <input [(ngModel)]="value" type="text" (change)="onSearch($event)" [ngModelOptions]="{ standalone: true }">
         <button aria-label="Clear" (click)="suppSearch()" (click)="value=''" >
         </button>
     </form>
