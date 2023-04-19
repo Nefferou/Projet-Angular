@@ -9,9 +9,8 @@
 
 .select-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
+  justify-content: flex-end;
+  padding: 1rem;
 
   select {
     font-size: 16px;
@@ -54,9 +53,30 @@
   }
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+
 
 
 #app-header {
   width: 100%;
   height: 100%;
+
+}
+.header-pokemon{
+  background-color: #dd5353;
+  color: #333;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
 }

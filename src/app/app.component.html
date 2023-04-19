@@ -9,15 +9,17 @@
 
 <!-- Toolbar -->
 <div class="content" role="main">
-  <app-header id="app-header" [(mySearch)]="search"></app-header>
-  <div class="select-container">
-    <select (change)="changeOrder($event)">
-      <option value="dateDesc">Date (plus récent d'abord)</option>
-      <option value="dateAsc">Date (plus ancien d'abord)</option>
-      <option value="nameAsc">Nom (ordre alphabétique)</option>
-      <option value="nameDesc">Nom (ordre inverse)</option>
-    </select>
-  </div>
+  <div class="header-pokemon">
+    <app-header id="app-header" [(mySearch)]="search"></app-header>
+    <div class="select-container">
+      <select (change)="changeOrder($event)">
+        <option value="dateDesc">Date (plus récent d'abord)</option>
+        <option value="dateAsc">Date (plus ancien d'abord)</option>
+        <option value="nameAsc">Nom (ordre alphabétique)</option>
+        <option value="nameDesc">Nom (ordre inverse)</option>
+      </select>
+    </div>
+</div>
   <!-- <mat-checkbox class="example-margin" (click)="changeOrder()">Ordre asc/desc (Valeur changeante mais ordre non changeant -> Console)</mat-checkbox> -->
     <app-pokemon-grid></app-pokemon-grid>
   <app-footer></app-footer>

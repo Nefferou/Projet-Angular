@@ -15,6 +15,7 @@ export class PokemonCardComponent {
 
   constructor(private pokemonService: PokemonService) { }
 
+
   addPokemon(pokemon: Pokemon) {
     console.log(pokemon.name+" ADDED")
   }

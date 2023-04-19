@@ -1,6 +1,6 @@
 <div class="card">
   <header class="title">
-    <title>{{pokemon.name}}</title>
+    <title>#{{pokemon.id}}.{{pokemon.name}}</title>
   </header>
   <img src={{pokemon.image}} alt={{pokemon.name}}>
   <content>
@@ -18,17 +18,19 @@
   <div class="types">
     <img *ngFor="let types of pokemon.apiTypes" src={{types.image}} alt={{types.name}}>
   </div>
+  <div class="favorites">
+    <button class="favorite" (click)="Favorite(pokemon)">
+      <img *ngIf="pokemon.isLikes" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="favorite">
+      <img *ngIf="!pokemon.isLikes" src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="NotFavorite">
+    </button>
+  </div>
   <span class="ajouts">
     <div class="cart">
-      <button class="add" (click)="addPokemon(pokemon)">+</button>
+        <input type="number" min="1" max="99">
+        <button class="add" (click)="addPokemon(pokemon)">+</button>
       <button class="remove" (click)="removePokemon(pokemon)">-</button>
     </div>
-    <div class="favorites">
-      <button class="favorite" (click)="Favorite(pokemon)">
-        <img *ngIf="pokemon.isLikes" src="https://img.icons8.com/ios/50/000000/like.png" alt="favorite">
-        <img *ngIf="!pokemon.isLikes" src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="favorite">
-      </button>
-    </div>
+
   </span>
 
 </div>

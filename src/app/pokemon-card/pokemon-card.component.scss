@@ -9,12 +9,6 @@
   padding: 20px;
   margin: 20px;
 
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-  }
 
   img {
     width: 200px;
@@ -131,12 +125,34 @@
         margin-right: 10px;
       }
 
-      .favorite {
-        img {
-          width: 30px;
-          height: 30px;
-        }
-      }
+
     }
+  }
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+.favorite {
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+.title {
+
+  title{
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inline;
   }
 }

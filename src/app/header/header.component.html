@@ -1,11 +1,9 @@
 <div id="header">
-    <span>My App</span>
+    <span>Gachemon</span>
     <form class="example-form-field">
         <label>Search</label>
         <input [(ngModel)]="value" type="text" (change)="onSearch($event)" [ngModelOptions]="{ standalone: true }">
         <button aria-label="Clear" (click)="suppSearch()" (click)="value=''" >
         </button>
     </form>
-    <button  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    </button>
 </div>
