@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SortByNamePipe } from './sort-by-name.pipe';
+import { SortByPipe } from './sort-by.pipe';
 import { SearchPokemonPipe } from './search-pokemon.pipe';
 
 import { FormsModule } from '@angular/forms';
@@ -30,10 +30,10 @@ import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SortByNamePipe,
     PokemonCardComponent,
     SearchPokemonPipe,
     PokemonGridComponent,
+    SortByPipe,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { Pokemon } from '../Models/pokemon.model';
 })
 export class PokemonGridComponent {
   public pokemonList!:Pokemon[];
+  order: string ='dateAsc';
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -24,5 +25,16 @@ export class PokemonGridComponent {
       }
     );
   }
-
+  changeOrder(e: any) {
+    if (e.target.value === 'idAsc') {
+      this.order = 'idAsc';
+    } else if (e.target.value === 'idDesc') {
+      this.order = 'idDesc';
+    } else if (e.target.value === 'nameAsc') {
+      this.order = 'nameAsc';
+    } else if (e.target.value === 'nameDesc') {
+      this.order = 'nameDesc';
+    }
+    console.log(this.order);
+  }
 }

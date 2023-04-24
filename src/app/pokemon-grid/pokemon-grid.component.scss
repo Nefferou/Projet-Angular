@@ -1,23 +1,4 @@
-/* div {
-
-  width: 20%;
-  height: 20%;
-  max-width: 150px;
-  max-height: 270px;
-  justify-content: space-between;
-  margin: 1%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: inline-table;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-} */
+//Pokemon grid
 .pokemon-card-container {
   gap: 1rem;
   flex: 1;
@@ -40,3 +21,49 @@
   }
 }
 
+//Select ORDER
+.select-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
+  select {
+    font-size: 16px;
+    padding: 8px 24px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: #666;
+    }
+
+    &:focus {
+      border-color: #4285f4;
+      box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.25);
+    }
+
+    option {
+      font-size: 16px;
+      padding: 8px;
+      background-color: #fff;
+      color: #333;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      &:checked {
+        background-color: #4285f4;
+        color: #fff;
+      }
+    }
+  }
+}

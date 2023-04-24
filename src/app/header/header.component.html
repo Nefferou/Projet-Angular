@@ -1,9 +1,31 @@
-<div id="header">
-    <span>Gachemon</span>
-    <form class="example-form-field">
-        <label>Search</label>
-        <input [(ngModel)]="value" type="text" (change)="onSearch($event)" [ngModelOptions]="{ standalone: true }">
-        <button aria-label="Clear" (click)="suppSearch()" (click)="value=''" >
-        </button>
-    </form>
+<div>
+  <mat-toolbar color="primary">
+    <div class="headerInfo">
+      <button mat-icon-button color="primary">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <p>{{ user.username }}</p>
+    </div>
+    <h1 class="app-title" *ngIf="value === 0; else elseBlock">Gatcha</h1>
+    <ng-template #elseBlock>
+      <h1 class="app-title" *ngIf="value === 1; else elseBlock2">Histoire</h1>
+      <ng-template #elseBlock2>
+        <div class="search-box">
+          <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput [(ngModel)]="searchText" (ngModelChange)="changeSearch($event)" />
+     <button mat-icon-button color="primary" aria-label="search">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </ng-template>
+    </ng-template>
+    <div class="headerInfo">
+      <p>{{ user.Cryptokemons }}</p>
+      <button mat-icon-button color="primary">
+        <mat-icon>catching_pokemon</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
 </div>

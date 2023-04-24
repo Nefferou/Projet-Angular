@@ -1,5 +1,14 @@
+<div class="select-container">
+  <select (change)="changeOrder($event)">
+    <option value="idAsc" hidden="true">Trier par...</option>
+    <option value="idDesc">ID (plus récent d'abord)</option>
+    <option value="idAsc">ID (plus ancien d'abord)</option>
+    <option value="nameAsc">Nom (ordre alphabétique)</option>
+    <option value="nameDesc">Nom (ordre inverse)</option>
+  </select>
+</div>
 <div class="pokemon-card-container">
-  <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
+  <div *ngFor="let pokemon of (pokemonList | sortBy: order )"  class="pokemon-card">
     <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
   </div>
 </div>

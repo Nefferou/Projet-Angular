@@ -17,11 +17,13 @@ export class PokemonCardComponent {
 
 
   addPokemon(pokemon: Pokemon) {
-    console.log(pokemon.name+" ADDED")
+    this.selectedPrice++;
   }
 
   removePokemon(pokemon: Pokemon) {
-    console.log(pokemon.name+" REMOVED")
+    if(this.selectedPrice >0){
+      this.selectedPrice--;
+    }
 
   }
 
@@ -30,11 +32,3 @@ export class PokemonCardComponent {
     }
 
 }
-/**
- *       <button class="add" (click)="addPokemon(pokemon)">+</button>
-      <button class="remove" (click)="removePokemon(pokemon)">-</button>
-    </div>
-    <div class="favorites">
-      <button class="favorite" (click)="addFavorite(pokemon)">♥</button>
-      <button class="unfavorite" (click)="removeFavorite(pokemon)">♡</button>
- */
