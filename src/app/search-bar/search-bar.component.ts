@@ -16,11 +16,13 @@ export class SearchBarComponent {
 
   search(e:any) {
     this.searchTerm = e.target.value;
+    (this.searchTerm)?
     this.pokemonService.getAllPokemon().subscribe((Pokemons: Pokemon[]) => {
       this.searchResults = Pokemons.filter((pokemon: Pokemon) => {
         return pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase());
       });
-    });
+    }):
+    this.searchResults = [];
     console.log(this.searchResults);
   }
 }

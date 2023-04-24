@@ -22,10 +22,10 @@ export class FooterComponent implements OnInit {
     this.activeLinkIndex = index;
     switch (index) {
       case 0:
-        this.router.navigateByUrl('/boutique');
+        this.router.navigateByUrl('/clicker');
         break;
       case 1:
-        this.router.navigateByUrl('/clicker');
+        this.router.navigateByUrl('/boutique');
         break;
       case 2:
         this.router.navigateByUrl('/marchand');
@@ -38,11 +38,11 @@ export class FooterComponent implements OnInit {
   private getSelectedTabIndex(): number {
     const path = this.router.url;
     if (path.includes('/clicker')) {
-      return 1;
+      return 0;
     } else if (path.includes('/marchand')) {
       return 2;
     } else {
-      return 0;
+      return 1;
     }
   }
 

@@ -1,5 +1,5 @@
 <div class="search-container">
-  <input type="text" [(ngModel)]="searchTerm" (keyup)="search($event)" class="search-bar">
+  <input type="text" [(ngModel)]="searchTerm" (keyup)="search($event)" class="search-bar" placeholder="Search Pokemon">
     <div *ngFor="let pokemon of searchResults">
       <app-pokemon-search [routerLink]="['/pokemon', pokemon.id]" [pokemon]="pokemon"></app-pokemon-search>
     </div>

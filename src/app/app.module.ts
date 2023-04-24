@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SortByPipe } from './sort-by.pipe';
-import { SearchPokemonPipe } from './search-pokemon.pipe';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
@@ -38,7 +37,6 @@ import { MarchandComponent } from './marchand/marchand.component';
     HeaderComponent,
     FooterComponent,
     PokemonCardComponent,
-    SearchPokemonPipe,
     PokemonGridComponent,
     SortByPipe,
     SearchBarComponent,
