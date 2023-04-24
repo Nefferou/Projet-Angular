@@ -20,10 +20,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
+import { BoutiqueComponent } from './boutique/boutique.component';
+import { ClickerComponent } from './clicker/clicker.component';
+import { MarchandComponent } from './marchand/marchand.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +41,11 @@ import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
     SearchPokemonPipe,
     PokemonGridComponent,
     SortByPipe,
+    SearchBarComponent,
+    PokemonSearchComponent,
+    BoutiqueComponent,
+    ClickerComponent,
+    MarchandComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +58,8 @@ import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
     MatIconModule,
     HttpClientModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [{
     provide: LOCALE_ID,

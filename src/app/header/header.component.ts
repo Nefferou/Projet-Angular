@@ -6,15 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  value = 0;
-  searchText = '';
+  value=0;
 
   user = {
     username: 'John',
     Cryptokemons: 10
   };
-
-  changeSearch(value: string) {
-    this.searchText = value;
-  }
 }

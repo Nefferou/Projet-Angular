@@ -1,6 +1,7 @@
-<footer>
-    <div class="container">
-      <p>Site crée par Julien Fertilati dans le cadre d'un projet individuel en Angular</p>
-    </div>
-  </footer>
-  
+<div id='appBar'>
+  <mat-tab-group [(selectedIndex)]="activeLinkIndex" (selectedTabChange)="onLinkClick($event.index)">
+    <mat-tab label="Boutique"></mat-tab>
+    <mat-tab label="Clicker"></mat-tab>
+    <mat-tab label="Marchand"></mat-tab>
+  </mat-tab-group>
+</div>

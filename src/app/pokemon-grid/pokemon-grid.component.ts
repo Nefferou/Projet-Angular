@@ -35,6 +35,5 @@ export class PokemonGridComponent {
     } else if (e.target.value === 'nameDesc') {
       this.order = 'nameDesc';
     }
-    console.log(this.order);
   }
 }

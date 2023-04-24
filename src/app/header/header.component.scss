@@ -1,35 +1,24 @@
-.mat-toolbar {
-  .headerInfo {
-    display: flex;
-    align-items: center;
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    p {
-      margin: 0;
-      margin-left: 8px;
-    }
-  }
+  .mat-toolbar {
+    background-color: #ff0000;
 
-  .toolbar-spacer {
-    flex: 1 1 auto;
-  }
+    .headerInfo {
+      display: flex;
+      align-items: center;
 
-  .toolbar-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 16px;
-  }
+      button {
+        font-size: x-large;
+      }
 
-  .search-field {
-    width: 400px;
-    margin-right: 16px;
-
-    input {
-      font-size: 18px;
-      padding: 6px 12px;
-    }
-
-    button {
-      font-size: 18px;
+      p {
+        margin: 0;
+        padding: 0 10px;
+      }
     }
   }
 }

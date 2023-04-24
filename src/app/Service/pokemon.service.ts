@@ -7,12 +7,13 @@ import { Pokemon } from '../Models/pokemon.model';
   providedIn: 'root'
 })
 export class PokemonService {
-  private baseUrl = 'https://pokebuildapi.fr/api/v1/pokemon/limit/20';
+  private baseUrl = 'https://pokebuildapi.fr/api/v1/pokemon';
 
   constructor(private http: HttpClient) {}
 
   getAllPokemon(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(this.baseUrl);
+    const url = `${this.baseUrl}/limit/100`
+    return this.http.get<Pokemon[]>(url);
   }
 
   getPokemonById(id: number): Observable<Pokemon> {
