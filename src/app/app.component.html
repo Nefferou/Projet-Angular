@@ -1,36 +1,7 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<!-- Toolbar -->
+<headerComponent id="app-header"></headerComponent>
 <div class="content" role="main">
-  <app-header id="app-header" [(mySearch)]="search"></app-header>
-  <div class="select-container">
-    <select (change)="changeOrder($event)">
-      <option value="dateDesc">Date (plus récent d'abord)</option>
-      <option value="dateAsc">Date (plus ancien d'abord)</option>
-      <option value="nameAsc">Nom (ordre alphabétique)</option>
-      <option value="nameDesc">Nom (ordre inverse)</option>
-    </select>
-  </div>
-  <!-- <mat-checkbox class="example-margin" (click)="changeOrder()">Ordre asc/desc (Valeur changeante mais ordre non changeant -> Console)</mat-checkbox> -->
-  <div class="pokemons">
-    <app-pokemon-card></app-pokemon-card>
-  </div>
-  <app-footer></app-footer>
+    <router-outlet></router-outlet>
 </div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet></router-outlet>
+<footer>
+  <app-footer></app-footer>
+</footer>

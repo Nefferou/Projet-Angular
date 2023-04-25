@@ -7,8 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SortByNamePipe } from './sort-by-name.pipe';
-import { SearchPokemonPipe } from './search-pokemon.pipe';
+import { SortByPipe } from './sort-by.pipe';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
@@ -20,8 +19,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
+import { BoutiqueComponent } from './boutique/boutique.component';
+import { ClickerComponent } from './clicker/clicker.component';
+import { MarchandComponent } from './marchand/marchand.component';
 
 
 @NgModule({
@@ -29,9 +37,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SortByNamePipe,
     PokemonCardComponent,
-    SearchPokemonPipe,
+    PokemonGridComponent,
+    SortByPipe,
+    SearchBarComponent,
+    PokemonSearchComponent,
+    BoutiqueComponent,
+    ClickerComponent,
+    MarchandComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +55,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    MatButtonModule,
+    HttpClientModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [{
     provide: LOCALE_ID,

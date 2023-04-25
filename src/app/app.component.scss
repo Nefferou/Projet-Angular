@@ -1,68 +1,10 @@
 .content {
   display: flex;
-  max-width: 100%;
-  max-height: 100%;
-  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
 }
 
-.select-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-
-  select {
-    font-size: 16px;
-    padding: 8px 24px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s;
-
-    &:hover {
-      border-color: #666;
-    }
-
-    &:focus {
-      border-color: #4285f4;
-      box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.25);
-    }
-
-    option {
-      font-size: 16px;
-      padding: 8px;
-      background-color: #fff;
-      color: #333;
-      transition: all 0.3s;
-
-      &:hover {
-        background-color: #eee;
-      }
-
-      &:checked {
-        background-color: #4285f4;
-        color: #fff;
-      }
-    }
-  }
+#app-header{
+  background-color: #ff0000;
 }
 
-.pokemons {
-  display: flex;
-  justify-content:space-between;
-  flex-direction: row;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-#app-header {
-  width: 100%;
-  height: 100%;
-}

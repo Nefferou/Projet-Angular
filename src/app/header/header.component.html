@@ -1,13 +1,17 @@
-<mat-toolbar id="header">
-    <span>My App</span>
-    <mat-form-field class="example-form-field">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="value" type="text" (change)="onSearch($event)">
-        <button matSuffix mat-icon-button aria-label="Clear" (click)="suppSearch()" (click)="value=''" >
-            <mat-icon>close</mat-icon>
-        </button>
-    </mat-form-field>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-</mat-toolbar>
+<div class="header">
+  <mat-toolbar color="red">
+    <div class="headerInfo">
+      <button mat-icon-button color="primary">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <p>{{ user.username }}</p>
+    </div>
+    <app-search-bar/>
+    <div class="headerInfo">
+      <p>{{ user.Cryptokemons }}</p>
+      <button mat-icon-button color="primary">
+        <mat-icon>catching_pokemon</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
