@@ -1,24 +1,15 @@
-import { Component, EventEmitter, OnChanges, Output } from '@angular/core';
-import { Input,} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
+  selector: 'headerComponent',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent{
-  @Input() mySearch!: String;
-  @Output() mySearchChange = new EventEmitter<String>();
+export class HeaderComponent {
+  value=0;
 
-  value: String = '';
-
-  onSearch(e: any) {
-    this.mySearch = e.target.value;
-    this.mySearchChange.emit(this.mySearch);
-  }
-
-  suppSearch() {
-    this.mySearch = "";
-    this.mySearchChange.emit(this.mySearch);
-  }
+  user = {
+    username: 'John',
+    Cryptokemons: 10
+  };
 }

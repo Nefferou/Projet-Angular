@@ -1,5 +1,37 @@
-<div *ngIf="myPokemon != null">
-    <p>{{myPokemon.id}}</p>
-    <p>{{myPokemon.name}}</p>
-    <p>{{myPokemon.imageURL}}</p>
+<div class="card">
+  <header class="title">
+    <title>{{pokemon.name}}</title>
+  </header>
+  <img src={{pokemon.image}} alt={{pokemon.name}}>
+  <content>
+    <div class="stats">
+      <p class="HP">HP : {{pokemon.stats.HP}}</p>
+      <p class="Att">Att : {{pokemon.stats.attack}}</p>
+      <p class="Def">Def : {{pokemon.stats.defense}}</p>
+    </div>
+    <div class="stats">
+      <p class="AtS">AtS : {{pokemon.stats.special_attack}}</p>
+      <p class="DfS">DfS : {{pokemon.stats.special_defense}}</p>
+      <p class="Vit">Vit : {{pokemon.stats.speed}}</p>
+    </div>
+  </content>
+  <div class="types">
+    <img *ngFor="let types of pokemon.apiTypes" src={{types.image}} alt={{types.name}}>
+  </div>
+  <div class="favorites">
+    <button class="favorite" (click)="Favorite(pokemon)">
+      <img *ngIf="pokemon.isLikes" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="favorite">
+      <img *ngIf="!pokemon.isLikes" src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="NotFavorite">
+    </button>
+  </div>
+  <span class="ajouts">
+    <div class="cart">
+        <p class="quantity">{{this.selectedPrice}}</p>
+        <button class="add" (click)="addPokemon(pokemon)">+</button>
+      <button class="remove" (click)="removePokemon(pokemon)">-</button>
+    </div>
+
+  </span>
+
 </div>
+
