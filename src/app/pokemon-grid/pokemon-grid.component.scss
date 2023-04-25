@@ -1,5 +1,6 @@
 //Pokemon grid
 .pokemon-card-container {
+  overflow-y: hidden;
   gap: 1rem;
   flex: 1;
   display: flex;

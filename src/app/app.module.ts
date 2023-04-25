@@ -20,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -54,6 +55,7 @@ import { MarchandComponent } from './marchand/marchand.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    MatButtonModule,
     HttpClientModule,
     MatCheckboxModule,
     MatCardModule,
