@@ -7,33 +7,44 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ProductCardComponent } from './product-card/product-card.component';
-import { SortByDatePipe } from './sort-by-date.pipe';
+import { SortByPipe } from './sort-by.pipe';
 
 import { FormsModule } from '@angular/forms';
-import { SearchProductPipe } from './search-product.pipe';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SortByNamePipe } from './sort-by-name.pipe';
-import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
+import { BoutiqueComponent } from './boutique/boutique.component';
+import { ClickerComponent } from './clicker/clicker.component';
+import { MarchandComponent } from './marchand/marchand.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductCardComponent,
-    SortByDatePipe,
-    SearchProductPipe,
     HeaderComponent,
     FooterComponent,
-    SortByNamePipe,
-    PokemonCardComponent
+    PokemonCardComponent,
+    PokemonGridComponent,
+    SortByPipe,
+    SearchBarComponent,
+    PokemonSearchComponent,
+    BoutiqueComponent,
+    ClickerComponent,
+    MarchandComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +55,11 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatCheckboxModule
+    MatButtonModule,
+    HttpClientModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [{
     provide: LOCALE_ID,
