@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { PokemonService } from '../Service/pokemon.service';
+import { Component} from '@angular/core';
 import { Pokemon } from '../Models/pokemon.model';
+import { PokemonService } from '../Service/pokemon.service';
+import { Observable, map} from 'rxjs';
+import { SortByPipe } from '../sort-by.pipe';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-pokemon-grid',
@@ -8,32 +11,25 @@ import { Pokemon } from '../Models/pokemon.model';
   styleUrls: ['./pokemon-grid.component.scss']
 })
 export class PokemonGridComponent {
-  public pokemonList!:Pokemon[];
-  order: string ='dateAsc';
+  pokemonList!: Observable<Pokemon[]>;
+  myControl = new FormControl();
+  searchTerm: string = '';
+  order: string = "";
 
-  constructor(private pokemonService: PokemonService) { }
-
-  ngOnInit() {
-    this.getPokemons();
+  constructor(private pokemonService: PokemonService) {
+    this.pokemonList = pokemonService.getAllPokemon();
   }
 
-  getPokemons() {
-    this.pokemonService.getAllPokemon().subscribe(
-      (data: Pokemon[]) => {
-        this.pokemonList = data;
-        console.log(this.pokemonList);
-      }
+  changeOrder(event: Event) {
+    console.log("changed");
+    this.order = (event.target as HTMLSelectElement).value;
+  }
+
+
+  getPokemons(): Observable<Pokemon[]> {
+    return this.pokemonList.pipe(
+      map(pokemonArray => new SortByPipe().transform(pokemonArray, this.order, this.searchTerm))
     );
   }
-  changeOrder(e: any) {
-    if (e.target.value === 'idAsc') {
-      this.order = 'idAsc';
-    } else if (e.target.value === 'idDesc') {
-      this.order = 'idDesc';
-    } else if (e.target.value === 'nameAsc') {
-      this.order = 'nameAsc';
-    } else if (e.target.value === 'nameDesc') {
-      this.order = 'nameDesc';
-    }
-  }
+
 }

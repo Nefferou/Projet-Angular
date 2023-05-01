@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Pokemon } from '../Models/pokemon.model';
 import { PokemonService } from '../Service/pokemon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -13,7 +14,7 @@ export class PokemonCardComponent {
 
   selectedPrice: number = 0;
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private router: Router) { }
 
 
   addPokemon(pokemon: Pokemon) {
@@ -31,4 +32,7 @@ export class PokemonCardComponent {
     (pokemon.isLikes)? pokemon.isLikes = false : pokemon.isLikes = true;
     }
 
+    redirectToPokemonDetails(id: number) {
+      this.router.navigate(['/pokemon', id]);
+    }
 }

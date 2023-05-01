@@ -21,15 +21,19 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { ClickerComponent } from './clicker/clicker.component';
 import { MarchandComponent } from './marchand/marchand.component';
+import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 
 
 @NgModule({
@@ -40,14 +44,14 @@ import { MarchandComponent } from './marchand/marchand.component';
     PokemonCardComponent,
     PokemonGridComponent,
     SortByPipe,
-    SearchBarComponent,
-    PokemonSearchComponent,
     BoutiqueComponent,
     ClickerComponent,
     MarchandComponent,
+    PokemonDetailsComponent,
   ],
   imports: [
     BrowserModule,
+    MatSelectModule,
     AppRoutingModule,
     NoopAnimationsModule,
     FormsModule,
@@ -59,12 +63,17 @@ import { MarchandComponent } from './marchand/marchand.component';
     HttpClientModule,
     MatCheckboxModule,
     MatCardModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
     MatTabsModule
   ],
   providers: [{
     provide: LOCALE_ID,
-    useValue: 'fr-FR'
-  }],
+    useValue: 'fr-FR',
+  },
+  SortByPipe
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
