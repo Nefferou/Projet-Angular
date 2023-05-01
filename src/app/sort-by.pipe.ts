@@ -5,13 +5,16 @@ import { Pokemon } from './Models/pokemon.model';
   name: 'sortBy',
 })
 export class SortByPipe implements PipeTransform {
-  transform(pokemons: Pokemon[], order: String): Pokemon[] {
+  transform(pokemons: Pokemon[], order: string, searchTerm: string): Pokemon[] {
     if (!pokemons || pokemons.length === 0) {
       return [];
     }
+
+    let filteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
     if (order.includes('name')) {
       // On trie les produits par ordre alphabétique selon leur titre
-      return pokemons.sort((a, b) => {
+      return filteredPokemons.sort((a, b) => {
         let titleA = a.name.toLowerCase();
         let titleB = b.name.toLowerCase();
 
@@ -32,9 +35,9 @@ export class SortByPipe implements PipeTransform {
           return 0;
         }
       });
-    }else if(order.includes("id")){
+    } else if(order.includes("id")) {
       // On trie les produits par ordre alphabétique selon leur id
-      return pokemons.sort((a, b) => {
+      return filteredPokemons.sort((a, b) => {
         let titleA = a.id;
         let titleB = b.id;
 
@@ -45,10 +48,10 @@ export class SortByPipe implements PipeTransform {
         } else {
           return 0;
         }
-      }
-      );
+      });
     } else {
-      return pokemons;
+      return filteredPokemons;
     }
   }
+
 }

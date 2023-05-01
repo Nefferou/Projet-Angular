@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="redirectToPokemonDetails(pokemon.id)">
   <header class="title">
     <title>{{pokemon.name}}</title>
   </header>
@@ -30,8 +30,6 @@
         <button class="add" (click)="addPokemon(pokemon)">+</button>
       <button class="remove" (click)="removePokemon(pokemon)">-</button>
     </div>
-
   </span>
-
 </div>
 
