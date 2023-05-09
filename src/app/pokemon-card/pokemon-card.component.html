@@ -1,4 +1,5 @@
-<div class="card" (click)="redirectToPokemonDetails(pokemon.id)">
+<div class="card" >
+  <div (click)="redirectToPokemonDetails(pokemon.id)">
   <header class="title">
     <title>{{pokemon.name}}</title>
   </header>
@@ -18,6 +19,7 @@
   <div class="types">
     <img *ngFor="let types of pokemon.apiTypes" src={{types.image}} alt={{types.name}}>
   </div>
+</div>
   <div class="favorites">
     <button class="favorite" (click)="Favorite(pokemon)">
       <img *ngIf="pokemon.isLikes" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="favorite">

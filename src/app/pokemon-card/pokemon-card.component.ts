@@ -29,10 +29,16 @@ export class PokemonCardComponent {
   }
 
   Favorite(pokemon: Pokemon) {
-    (pokemon.isLikes)? pokemon.isLikes = false : pokemon.isLikes = true;
+    if(pokemon.isLikes){
+      pokemon.isLikes = false;
+/*       const user = JSON.parse(localStorage.getItem("User"));
+      let fav = JSON.parse(user.pokemonFav); */
+    }else{
+      pokemon.isLikes = true;
     }
+  }
 
     redirectToPokemonDetails(id: number) {
-      this.router.navigate(['/pokemon', id]);
+      this.router.navigate(['/pokemon/', id]);
     }
 }
