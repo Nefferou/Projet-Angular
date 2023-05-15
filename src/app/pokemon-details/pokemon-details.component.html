@@ -1,22 +1,22 @@
 <div *ngIf="id>1" class="previous">
   <a (click)="ChangedId(id-1)">PREVIOUS</a>
 </div>
-<mat-card>
-  <img mat-card-image [src]="pokemon.image">
-  <mat-card-content>
-    <h2>{{pokemon.name}}</h2>
-    <p>HP: {{pokemon.stats.HP}}</p>
-    <p>Attack: {{pokemon.stats.attack}}</p>
-    <p>Defense: {{pokemon.stats.defense}}</p>
-    <p>Special Attack: {{pokemon.stats.special_attack}}</p>
-    <p>Special Defense: {{pokemon.stats.special_defense}}</p>
-    <p>Speed: {{pokemon.stats.speed}}</p>
-    <p>Likes: {{pokemon.likes}}</p>
-    <p *ngIf="pokemon.price">Price: {{pokemon.price}}</p>
-    <p *ngIf="pokemon.isLikes">Liked!</p>
-    <p *ngIf="pokemon.fav">Favorite!</p>
-  </mat-card-content>
-</mat-card>
+<app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+<div class="pokemonStats">
+  <h3>Pokemon Stats</h3>
+  <content>
+    <div class="stats">
+      <p class="HP">HP : {{pokemon.stats.HP}}</p>
+      <p class="Att">Att : {{pokemon.stats.attack}}</p>
+      <p class="Def">Def : {{pokemon.stats.defense}}</p>
+    </div>
+    <div class="stats">
+      <p class="AtS">AtS : {{pokemon.stats.special_attack}}</p>
+      <p class="DfS">DfS : {{pokemon.stats.special_defense}}</p>
+      <p class="Vit">Vit : {{pokemon.stats.speed}}</p>
+    </div>
+  </content>
+</div>
 <div *ngIf="id<898" class="next">
   <a (click)="ChangedId(id+1)" >NEXT</a>
 </div>

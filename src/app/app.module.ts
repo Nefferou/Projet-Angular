@@ -31,9 +31,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonGridComponent } from './pokemon-grid/pokemon-grid.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
-import { ClickerComponent } from './clicker/clicker.component';
 import { MarchandComponent } from './marchand/marchand.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { CartOptionsComponent } from './cart-options/cart-options.component';
 
 
 @NgModule({
@@ -45,9 +46,9 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
     PokemonGridComponent,
     SortByPipe,
     BoutiqueComponent,
-    ClickerComponent,
     MarchandComponent,
     PokemonDetailsComponent,
+    CartOptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +59,7 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatMenuModule,
     MatIconModule,
     MatButtonModule,
     HttpClientModule,

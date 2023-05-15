@@ -24,7 +24,8 @@ export class PokemonDetailsComponent{
   }
 
   ChangedId(id: number): void {
+    this.id = id;
     this.router.navigateByUrl('/', {skipLocationChange: true})
-      .then(() => this.router.navigate(['/pokemon/'+id]));
+      .then(() => this.router.navigate([`/pokemon/${id}`]));
   }
 }
