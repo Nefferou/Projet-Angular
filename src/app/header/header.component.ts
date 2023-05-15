@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PokemonService } from '../Service/pokemon.service';
 import { SortByPipe } from '../sort-by.pipe';
 import { UserService } from '../Service/user.service';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 
 @Component({
@@ -33,5 +34,9 @@ export class HeaderComponent {
         }
       );
     }
+  }
+
+  cartOptions():void{
+
   }
 }

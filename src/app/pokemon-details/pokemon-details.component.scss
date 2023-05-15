@@ -1,4 +1,56 @@
+.pokemonStats {
+  h3{
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 
+    .stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      p {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .HP {
+        color: darkgreen;
+      }
+
+      .Att {
+        color: red;
+
+      }
+
+      .Def {
+        color: blue;
+      }
+
+      .AtS {
+        color: darkred;
+      }
+
+      .DfS {
+        color: darkblue;
+      }
+
+      .Vit {
+        color: green;
+      }
+    }
+  }
+}
 .previous {
   position: absolute;
   left: 20px;
