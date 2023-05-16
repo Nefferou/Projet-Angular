@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule} from '@angular/router';
 import { BoutiqueComponent } from './boutique/boutique.component';
-import { ClickerComponent } from './clicker/clicker.component';
 import { MarchandComponent } from './marchand/marchand.component';
+import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
+import { CartOptionsComponent } from './cart-options/cart-options.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'boutique', pathMatch: 'full' },
-  { path: 'boutique', component: BoutiqueComponent },
-  { path: 'clicker', component: ClickerComponent },
+  { path: 'boutique/:token', component: BoutiqueComponent },
   { path: 'marchand', component: MarchandComponent },
+  { path: 'pokemon/:id', component: PokemonDetailsComponent },
+  { path: 'cart-options', component: CartOptionsComponent },
 ];
 
 @NgModule({

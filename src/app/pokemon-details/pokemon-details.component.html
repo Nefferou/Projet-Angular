@@ -1,0 +1,22 @@
+<div *ngIf="id>1" class="previous">
+  <a (click)="ChangedId(id-1)">PREVIOUS</a>
+</div>
+<app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+<div class="pokemonStats">
+  <h3>Pokemon Stats</h3>
+  <content>
+    <div class="stats">
+      <p class="HP">HP : {{pokemon.stats.HP}}</p>
+      <p class="Att">Att : {{pokemon.stats.attack}}</p>
+      <p class="Def">Def : {{pokemon.stats.defense}}</p>
+    </div>
+    <div class="stats">
+      <p class="AtS">AtS : {{pokemon.stats.special_attack}}</p>
+      <p class="DfS">DfS : {{pokemon.stats.special_defense}}</p>
+      <p class="Vit">Vit : {{pokemon.stats.speed}}</p>
+    </div>
+  </content>
+</div>
+<div *ngIf="id<898" class="next">
+  <a (click)="ChangedId(id+1)" >NEXT</a>
+</div>
