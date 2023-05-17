@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  token = localStorage.getItem("token");
 
   activeLinkIndex = 0;
 
@@ -22,12 +23,9 @@ export class FooterComponent implements OnInit {
     this.activeLinkIndex = index;
     switch (index) {
       case 0:
-        this.router.navigateByUrl('/clicker');
+        this.router.navigateByUrl(`/boutique/${this.token}`);
         break;
       case 1:
-        this.router.navigateByUrl('/boutique');
-        break;
-      case 2:
         this.router.navigateByUrl('/marchand');
         break;
       default:
@@ -37,12 +35,10 @@ export class FooterComponent implements OnInit {
 
   private getSelectedTabIndex(): number {
     const path = this.router.url;
-    if (path.includes('/clicker')) {
-      return 0;
-    } else if (path.includes('/marchand')) {
-      return 2;
-    } else {
+    if (path.includes('/marchand')) {
       return 1;
+    } else {
+      return 0;
     }
   }
 
