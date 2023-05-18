@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="button-container">
+    <button mat-flat-button color="primary" class="cart-button" onclick="deleteAll()">
+      <mat-icon>remove_shopping_cart</mat-icon>
+      Drop Cart
+    </button>
+    <button mat-flat-button color="primary" class="cart-button" routerLink="/payement">
+      <mat-icon>payment</mat-icon>
+      Buy Cart
+    </button>
+  </div>
+
+  <!-- Display cart items -->
+  <div class="cart-container">
+    <div *ngIf="cartItems.length > 0; else noItems">
+      <h2>Your Cart:</h2>
+      <div class="cart-item" *ngFor="let item of cartItems; index as i; first as isFirst">
+        <div class="pokemon">
+          <h3>{{ item.pokemon.name }}</h3>
+          <img src="{{ item.pokemon.sprite }}" />
+        </div>
+        <div class="shop_info">
+          <img src="{{ item.pokeball.image }}" />
+          <p>X {{ item.quantity }}</p>
+        </div>
+        <div class="options">
+          <button mat-icon-button color="primary" (click)="removeItem(item.pokemon, item.pokeball)">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="addItem(item.pokemon, item.pokeball)">
+            <mat-icon>add_circle_outline</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="deleteItem(item.pokemon, item.pokeball)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noItems>
+      <h3>Your cart is empty.</h3>
+    </ng-template>
+  </div>
+</div>

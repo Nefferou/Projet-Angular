@@ -20,8 +20,9 @@ export class BoutiqueComponent implements OnInit {
       // Ajout du token dans le localStorage
       if (this.token) {
         localStorage.setItem('token', this.token);
-        localStorage.setItem('cart',JSON.stringify(new Map<Pokemon, number>()))
-        console.log(localStorage.getItem('cart'));
+        if(localStorage.getItem('cart') == null){
+          localStorage.setItem('cart',JSON.stringify(new Map<Pokemon, number>()))
+        }
       }
     });
   }

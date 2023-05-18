@@ -1,0 +1,36 @@
+<h1>Payment</h1>
+
+<div *ngIf="cartItems.length > 0">
+  <h2>Cart Items</h2>
+  <ul class="cart-items">
+    <li *ngFor="let item of cartItems">
+      <div class="item-container">
+        <img class="pokemon-sprite" src="{{item.pokemon.sprite}}"/>
+        <div class="item-details">
+          <p>Quantity: {{ item.quantity }}</p>
+          <p>Pokeball: <img src="{{ item.pokeball.image }}"/></p>
+
+          <p>Price: {{ (item.pokemon.price + item.pokeball.price) * item.quantity }}
+            <img src="../../assets/token_cryptokemon.svg">
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="total">
+    <h2>Total: {{ this.total }}
+      <img src="../../assets/token_cryptokemon.svg">
+    </h2>
+  </div>
+  <div>
+    <button mat-flat-button color="primary" class="cart-button" (click)="buyCart()">
+      <mat-icon>payment</mat-icon>
+      Buy Cart
+    </button>
+  </div>
+</div>
+
+<div *ngIf="cartItems.length === 0">
+  <p>Your cart is empty.</p>
+</div>
