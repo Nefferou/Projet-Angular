@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="button-container">
+    <button mat-flat-button color="primary" class="cart-button" (click)="deleteAll()">
+      <mat-icon>remove_shopping_cart</mat-icon>
+      Drop Cart
+    </button>
+    <button mat-flat-button color="primary" class="cart-button" (click)="this.redirectToPaiement()" *ngIf="orderNumber">
+      <mat-icon>payment</mat-icon>
+      Order number: {{ orderNumber }}
+    </button>
+  </div>
+  <div *ngIf="loading">
+    Loading...
+  </div>
+  <div *ngIf="!loading">
+  <!-- Display cart items -->
+  <div class="cart-container">
+    <div *ngIf="cartItems.items.length > 0; else noItems">
+      <h2>Your Cart:</h2>
+      <div class="cart-item" *ngFor="let item of cartItems.items; index as i; first as isFirst">
+        <div class="pokemon">
+          <h3>{{ item.pokemon.name }}</h3>
+          <img src="{{ item.pokemon.sprite }}" />
+        </div>
+        <div class="shop_info">
+          <img src="{{ item.pokeball.image }}" />
+          <p>X {{ item.quantity }} Price: {{ (item.pokemon.price + item.pokeball.price) * item.quantity }}        <img  class="crypto" src="../../assets/token_cryptokemon.svg"></p>
+        </div>
+        <div class="options">
+<!--           <button mat-icon-button color="primary" (click)="removeItem(item.pokemon, item.pokeball)">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="addItem(item.pokemon, item.pokeball)">
+            <mat-icon>add_circle_outline</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="deleteItem(item.pokemon, item.pokeball)">
+            <mat-icon>delete</mat-icon>
+          </button> -->
+        </div>
+      </div>
+      <div class="total_price">
+        <h2>Total Price: {{ cartItems.totalPrice }}        <img  class="crypto" src="../../assets/token_cryptokemon.svg"></h2>
+      </div>
+      <div class="button-container">
+        <button mat-flat-button color="primary" class="cart-button" (click)="redirectToPaiement()" *ngIf="orderNumber">
+          <mat-icon>payment</mat-icon>
+          Order number: {{ orderNumber }}
+        </button>
+      </div>
+    </div>
+  </div>
+    <ng-template #noItems>
+      <h3>Your cart is empty.</h3>
+    </ng-template>
+  </div>
+
+
+  <!-- Contact form -->
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="contact-form">
+    <h2>Information de contact</h2>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nom complet</mat-label>
+        <input matInput type="text" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Adresse</mat-label>
+        <input matInput type="text" formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Téléphone</mat-label>
+        <input matInput type="text" formControlName="phone">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="!checkoutForm.valid">Ask somme questions</button>
+</form>

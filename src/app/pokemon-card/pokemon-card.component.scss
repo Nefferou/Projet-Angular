@@ -1,123 +1,116 @@
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.types {
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin: 20px;
-
-
-  img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-
-  .types {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-
-    img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: scale(1.2);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      }
-    }
-  }
-
-  .ajouts {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-
-    .quantity, .favorites {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 10px;
-
-      button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-          transform: scale(1.2);
-        }
-      }
-
-      .more {
-        color: #2ECC40;
-        font-size: 24px;
-        font-weight: bold;
-        margin-right: 10px;
-      }
-
-      .less {
-        color: #FF4136;
-        font-size: 24px;
-        font-weight: bold;
-        margin-right: 10px;
-      }
-
-
-    }
-    p.quantityNumber {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #333;
-      margin: 0;
-      padding: 0.5rem;
-      background-color: #f1f1f1;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-  }
+  margin-top: 10px;
 }
-button {
-  background-color: transparent;
+
+.types img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.favorites {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.favorite {
+  background: none;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
 }
-.favorite {
-  img {
-    width: 30px;
-    height: 30px;
-  }
-}
-.title {
 
-  title{
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    display: inline;
-  }
+.favorite img {
+  width: 15px;
+  height: 15px;
+}
+
+.pokeball {
+  margin-top: 10px;
+}
+
+.mat-form-field {
+  width: 100%;
+  max-width: 150px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.more,
+.less {
+  background-color: #007bff;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantityNumber {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.add {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+.add:hover {
+  background-color: #0056b3;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.price p {
+  margin: 0;
+  margin-left: 5px;
+}
+
+.price img {
+  width: 15px;
+  height: 15px;
 }

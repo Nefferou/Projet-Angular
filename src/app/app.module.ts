@@ -34,7 +34,8 @@ import { BoutiqueComponent } from './boutique/boutique.component';
 import { MarchandComponent } from './marchand/marchand.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { CartOptionsComponent } from './cart-options/cart-options.component';
+import { CartComponent } from './cart/cart.component';
+import { PayementComponent } from './payement/payement.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { CartOptionsComponent } from './cart-options/cart-options.component';
     BoutiqueComponent,
     MarchandComponent,
     PokemonDetailsComponent,
-    CartOptionsComponent,
+    CartComponent,
+    PayementComponent,
   ],
   imports: [
     BrowserModule,

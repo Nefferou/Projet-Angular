@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Order Confirmation</h2>
+
+  <h3>Order Number: {{ orderNumber }}</h3>
+  <div *ngIf="loading">
+    Loading...
+  </div>
+  <div *ngIf="!loading">
+    <div class="cart-item" *ngFor="let item of cartItems.items; index as i; first as isFirst">
+      <div class="pokemon">
+        <h3>{{ item.pokemon.name }}</h3>
+        <img src="{{ item.pokemon.sprite }}" />
+      </div>
+      <div class="shop_info">
+        <img src="{{ item.pokeball.image }}" />
+        <p>X {{ item.quantity }} Price: {{ (item.pokemon.price + item.pokeball.price) * item.quantity }}        <img  class="crypto" src="../../assets/token_cryptokemon.svg"></p>
+      </div>
+    </div>
+    <div class="total_price">
+      <h2>Total Price: {{ cartItems.totalPrice }}        <img  class="crypto" src="../../assets/token_cryptokemon.svg"></h2>
+      </div>
+
+  </div>
+</div>

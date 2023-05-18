@@ -8,19 +8,37 @@
     <img *ngFor="let types of pokemon.apiTypes" src={{types.image}} alt={{types.name}}>
   </div>
 </div>
+<div class="pokeball">
+  <mat-form-field appearance="fill">
+    <mat-label>Select Pokéball</mat-label>
+    <mat-select [(ngModel)]="selectedPokeball" (selectionChange)="onPokeballChange($event.value)">
+      <mat-option *ngFor="let pokeball of pokeballs" [value]="pokeball">
+        {{ pokeball.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
   <div class="favorites">
     <button class="favorite" (click)="Favorite(pokemon)">
-      <img *ngIf="pokemon.isLikes" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="favorite">
-      <img *ngIf="!pokemon.isLikes" src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="NotFavorite">
+      <img *ngIf="pokemon.isFav" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="favorite">
+      <img *ngIf="!pokemon.isFav" src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="NotFavorite">
     </button>
   </div>
   <span class="ajouts">
     <div class="quantity">
-        <p class="quantityNumber">{{this.selectedPrice}}</p>
       <button class="more" (click)="addQuantity()">+</button>
+      <p class="quantityNumber">{{this.selectedQuantity}}</p>
       <button class="less" (click)="removeQuantity()">-</button>
     </div>
-    <button class="add" (click)="addPokemon(pokemon)">Add</button>
+    <div class="cart">
+      <button class="add" (click)="addToCart()">
+        Add
+      </button>
+    </div>
   </span>
+
+  <div class="price" *ngIf="this.price >0">
+    <p>{{this.price}} <img src="../../assets/token_cryptokemon.svg"></p>
+  </div>
 </div>
 
