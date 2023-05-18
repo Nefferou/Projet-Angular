@@ -1,58 +1,80 @@
-h1 {
-  color: #333;
-}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 
-.cart-items {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.item-container {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  border: #333 solid;
-  border-radius: 12%;
-  flex-wrap: wrap;
-}
-
-.pokemon-sprite {
-  width: 80px;
-  height: 80px;
-}
-
-.item-details {
-  margin-left: 10px;
-  img{
-    width: 20px;
-    height: 20px;
-  }
-}
-
-.payment-form {
-  margin-top: 30px;
-
-  mat-form-field {
-    width: 100%;
+  h2 {
+    color: #333;
+    font-size: 2em;
     margin-bottom: 20px;
   }
 
-  button {
+  h3 {
+    color: #666;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .loading {
+    font-size: 1em;
+    color: #999;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    .pokemon {
+      display: flex;
+      align-items: center;
+
+      h3 {
+        margin-left: 10px;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .shop_info {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+
+      p {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .total_price {
     margin-top: 20px;
+
+    h2 {
+      font-size: 1.5em;
+      color: #333;
+    }
   }
-}
-mat-form-field.invalid-input {
-  .mat-input-element {
-    border-color: red;
-  }
-}
-.total{
-  img{
+
+  .crypto {
     width: 20px;
     height: 20px;
+    margin-left: 5px;
   }
 }

@@ -3,8 +3,8 @@ import { PokemonService } from '../Service/pokemon.service';
 import { SortByPipe } from '../sort-by.pipe';
 import { UserService } from '../Service/user.service';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { Pokemon } from '../Models/pokemon.model';
 
 @Component({
   selector: 'headerComponent',
@@ -12,40 +12,51 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-[x: string]: any;
-  value=0;
+  token: string | null = null;
+  value = 0;
   user: any;
 
-  constructor(private pokemonService: PokemonService, private sortByPipe: SortByPipe, private userService: UserService, private router: Router) {
-  }
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    console.log(localStorage.getItem('User'));
-    if(localStorage.getItem('User') != null){
-      this.user = JSON.parse(localStorage.getItem('User')!)[0];
-      console.log(this.user);
-    }else{
+    this.route.queryParamMap.subscribe((params) => {
+      this.token = params.get('token');
+
+      if (this.token) {
+        localStorage.setItem('token', this.token);
+        if (localStorage.getItem('cart') === null) {
+          localStorage.setItem('cart', JSON.stringify(new Map<Pokemon, number>()));
+        }
+      }
+
       this.getUserInfo();
-    }
+    });
   }
 
-  getUserInfo(){
-    const token = localStorage.getItem("token");
+  reset() {
+    localStorage.setItem('User', 'null');
+    console.log(localStorage.getItem('User')!);
+  }
+
+  getUserInfo() {
+    const token = localStorage.getItem('token');
     if (token) {
-      this.userService.getUser(token).subscribe(
-        data => {
-          this.user = data[0];
-          localStorage.setItem("User", JSON.stringify(data));
-          console.log("Informations de l'utilisateur :", this.user);
-          console.log("local storage :", localStorage.getItem("User"))
-        },
-        error => {
-          console.log("Erreur lors de la récupération des informations de l'utilisateur :", error);
-          this.router.navigate(['https://projet-gachemon.vercel.app/login']);
-        }
-      );
-    } else {
-      this.router.navigate(['https://projet-gachemon.vercel.app/login']);
+      this.userService.getUser(token)
+        .then(
+          (data: any) => {
+            console.log(data);
+            this.user = data[0];
+            localStorage.setItem('User', JSON.stringify(data));
+            console.log('Informations de l\'utilisateur :', this.user);
+            console.log('local storage :', localStorage.getItem('User'));
+          },
+          (error: any) => {
+            console.error('Failed to get user:', error);
+          }
+        );
     }
   }
 }

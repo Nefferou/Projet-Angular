@@ -2,14 +2,58 @@ import { Injectable } from '@angular/core';
 import { Pokeball } from '../Models/pokeball.model';
 import { Pokemon } from '../Models/pokemon.model';
 import { Cart } from '../Models/cart.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private cartItems: Cart[] = [];
+  private apiUrl = 'https://gachemon.osc-fr1.scalingo.io';
+  private paying = 0;
+  private totalPrice =0;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  updateCart(cart: Cart[]): Observable<any> {
+    const token = localStorage.getItem('token');
+    const url = `${this.apiUrl}/api/update/cart`;
+    const headers = { 'Authorization': `${token}` };
+    const body = {
+      "cart" : cart,
+      "totalPrice" : this.calculateTotalPrice(),
+      "isActive" : !this.paying
+    }
+    return this.http.put(url, body, { headers }).pipe(
+      catchError(error => {
+          console.error('Error:', error);
+          return throwError(error);
+      })
+    );
+    ;
+  }
+
+  calculateTotalPrice(): number {
+    this.cartItems.forEach((cart) =>
+      this.totalPrice += cart.quantity * (cart.pokemon.price + cart.pokeball.price)
+    )
+    return this.totalPrice;
+  }
+
+
+  getCartHistory(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const url = `${this.apiUrl}/api/get/cartHistory`;
+    const headers = { 'Authorization': `${token}` };
+    return this.http.get(url, { headers }).pipe(
+      catchError(error => {
+          console.error('Error:', error);
+          return throwError(error);
+      })
+    );
+    ;
+  }
 
   addToCart(pokemon: Pokemon, pokeball: Pokeball, quantity: number) {
     this.cartItems = this.getCartItems();
@@ -42,6 +86,14 @@ export class CartService {
 
   saveCartItems() {
     localStorage.setItem('cart', JSON.stringify(this.cartItems));
+    this.updateCart(this.cartItems).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log("Erreur lors de la récupération de l'historique du panier :", error);
+      }
+    );;
   }
 
   loadCartItems() {

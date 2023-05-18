@@ -1,30 +1,15 @@
-# MyApp
+# Folder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+cd to -> `.\Projet-Angular`
 
-## Development server
+## Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm install --force`
 
-## Code scaffolding
+## Launch serv
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm start`
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------
@@ -100,7 +85,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. - [ ] Créer un site complet avec
     1.1 - [x] l’affichage des produits,
     1.2 - [x] une vue détaillée par produit,
-    1.3 - [-] une vue “panier”,
+    1.3 - [x] une vue “panier”,
     1.4 - [-] une vue confirmation de commande
 
 2. - [x] Gérer ces pages avec le routing
@@ -111,7 +96,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 4. - [-] La page panier doit
     4.1 - [x] Calculer le prix total en fonction de la quantité de produit ajouté dans le panier
-    4.2 - [-] Contenir un formulaire de contact et un bouton commander
+    4.2 - [x] Contenir un formulaire de contact et un bouton commander
     4.3 - [-] Le bouton commander retourne un numéro de commande et redirige vers la page de commande
 
 5. - [ ] La page confirmation de commande affiche le numéro de commande en fonction d’un id

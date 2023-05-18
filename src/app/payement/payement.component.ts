@@ -1,101 +1,31 @@
-import { Component } from '@angular/core';
-
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../Service/cart.service';
-import { Cart } from '../Models/cart.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-payement',
-  templateUrl: 'payement.component.html',
-  styleUrls: ['payement.component.scss']
+  templateUrl: './payement.component.html',
+  styleUrls: ['./payement.component.scss']
 })
-export class PayementComponent {
-  user : any = JSON.parse(localStorage.getItem('User')!);
-  cartItems: Cart[] = [];
-  total!: number;
+export class PayementComponent implements OnInit {
+  orderNumber: any;
+  cartItems: any;
+  loading = true;
 
-  /**
-   * Constructor.
-   * @param cartService The cart service to retrieve cart items.
-   * @param http The HttpClient for sending HTTP requests.
-   */
-  constructor(private cartService: CartService, private http: HttpClient) {
-    this.cartItems = this.cartService.getCartItems();
-    this.getTotalCart();
-  }
+  constructor(private cartService: CartService, private route: ActivatedRoute) { }
 
-  getTotalCart() : void{
-    let total = 0;
-    this.cartItems.forEach(cart => {
-      total += (cart.pokemon.price + cart.pokeball.price )*cart.quantity;
-    });
-    this.total = total;
-  }
-
-  /**
-   * Process the payment and perform necessary actions.
-   */
-  processPayment(): void {
-    // Send confirmation email
-    const emailData = {
-      to: this.user.email, // Replace with recipient email address
-      subject: 'Order Confirmation',
-      body: `Thank you for your purchase! Your order details:\n\n${JSON.stringify(this.cartItems)}`
-    };
-
-/*     this.http.post('https://api.sendmail.com/send', emailData).subscribe(
+  ngOnInit(): void {
+    this.cartService.getCartHistory().subscribe(
       response => {
-        console.log('Email sent successfully');
-      },
-      error => {
-        console.error('Error sending email');
+        this.cartItems = JSON.parse(response).active_cart[0]['cart'][0];
+        console.log(this.cartItems);
+        this.loading = false;
       }
-    ); */
-  }
-
-  buyCart() {
-    if(this.user.cryptokemons < this.total){
-      return false;
-    }else{
-      this.user.cryptokemons -= this.total;
-      const data ={
-        cryptokemons: this.user.cryptokemons
-      }
-      this.http.put('https://gachemon.osc-fr1.scalingo.io/api/update/cryptokemons',JSON.stringify(data),
-      {headers: {
-        'Content-Type': 'application/json',
-        'Authorization': this.user.token
-      }
-    }).subscribe(
-      response => {
-        console.log('cryptokemons updated');
-      },
-      error => {
-        console.error('Error updating cryptokemons :'+error);
-      }
-      );
-      let pc = JSON.parse(this.user.pc)
-      this.cartItems.forEach(cart => {
-        pc.push(cart.pokemon.id);
-        this.user.pc = JSON.stringify(pc);
-      }
-      );
-      this.http.put('https://gachemon.osc-fr1.scalingo.io/api/update/pc',JSON.stringify(this.user.pc),
-      {headers: {
-        'Content-Type': 'application/json',
-        'Authorization': this.user.token
-      }
-    }).subscribe(
-      response => {
-        console.log('cryptokemons updated');
-      },
-      error => {
-        console.error('Error updating pc :'+error);
-      }
-      );
-      localStorage.setItem('User',JSON.stringify(this.user));
-
-      return true;
+    );
+    this.route.queryParamMap.subscribe((params) => {
+        this.orderNumber = params.get('id');
     }
-    }
+    );
+
+  }
 }

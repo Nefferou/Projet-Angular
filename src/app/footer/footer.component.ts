@@ -23,7 +23,7 @@ export class FooterComponent implements OnInit {
     this.activeLinkIndex = index;
     switch (index) {
       case 0:
-        this.router.navigateByUrl(`/boutique/${this.token}`);
+        this.router.navigateByUrl(`/boutique?token=${this.token}`);
         break;
       case 1:
         this.router.navigateByUrl('/marchand');

@@ -7,7 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { PayementComponent } from './payement/payement.component';
 
 const routes: Routes = [
-  { path: 'boutique/:token', component: BoutiqueComponent },
+  { path: 'boutique', component: BoutiqueComponent },
   { path: 'marchand', component: MarchandComponent },
   { path: 'pokemon/:id', component: PokemonDetailsComponent },
   { path: 'cart', component: CartComponent },
